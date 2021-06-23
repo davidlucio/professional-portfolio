@@ -1,0 +1,119 @@
+/* BRAND COLORS:
+
+Hardluck Blue   #0088cc (  0,136,204)
+Hardluck Grey   #666677 (102,102,119)
+
+OW Orange       #f99e1a	(249,158, 26)
+OW Grey         #43484c	( 67, 72, 76)
+OW Dark Blue    #405275	( 64, 82,117)
+OW Lite Blue    #218ffe	( 33,143,254)
+Black           #000000	(  0,  0,  0)
+
+*/
+:root{
+    /** Color Variables **/
+    --HardLuckGrey: rgba(102,102,119,1);
+    --HardLuckBlue: rgba(  0,136,204,1);
+
+    --OWOrange:     rgba(249,158, 26,1);
+    --OWGrey:       rgba( 67, 72, 76,1);
+    --OWBlue1:      rgba( 64, 82,117,1);
+    --OWBlue2:      rgba( 33,143,254,1);
+    --semiblack:    rgba(  50,  50,  50, 1);
+
+}
+
+@import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
+
+*{
+    font-family: "Teko", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+body{
+    /*background-color: #666677;*/
+}
+
+header{
+    position:relative;
+    display: flex;
+
+    /** flex-flow: [flex-direction] [flex-wrap] **/
+    flex-flow: row wrap;
+
+    /** Main-axis alignment **/
+    justify-content: space-between;
+
+    /** Cross-axis alignment **/
+    align-content: flex-start;
+
+    /** Cross axis sizing **/
+    align-items: stretch;
+
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    padding: 15px;
+    background: linear-gradient( 270deg, var(--HardLuckGrey), var(--OWBlue1) );
+    color: white;
+
+    border-bottom: 3px solid var(--HardLuckBlue);
+}
+
+header section{
+    /** flex: [flex-grow] [flex-shrink] [flex-basis]; **/
+    position:relative;
+    flex: 2 1 50%;
+    align-self: center;
+    min-width: 500px;
+}
+
+header img{
+    display: block;
+    position: absolute;
+    top: 0px;
+    left:0px;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    box-shadow: 5px 5px 10px var(--semiblack);
+    margin-right:20px;
+}
+
+header h1{
+    font-size: 300%;
+    line-height:100px;
+    padding-left: 120px;
+    text-shadow: 5px 5px 5px var(--semiblack);
+}
+
+header nav{
+    /** flex: [flex-grow] [flex-shrink] [flex-basis]; **/
+    flex: 1 1 50%;
+    align-self: flex-end;
+}
+
+header ul{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+    text-align: right;
+}
+
+header nav ul li{
+    flex: 1 1 25%;
+    font-size: 120%;
+    margin: 0px 5px;
+}
+
+header a{
+    color:var(--OWOrange);
+    text-decoration:none;
+}
+
+header a:hover{
+    text-shadow: 2px 2px 0px var(--semiblack);
+}

@@ -24,11 +24,6 @@
     font-size: 20px;
 }
 
-body{
-
-}
-
-
 /** HEADER **/
 
 header{    
@@ -296,6 +291,4 @@ footer p{
         border-bottom: 3px solid var(--HardLuckBlue);
     }
 
-    main section figure{
-    }
 }

@@ -1,6 +1,7 @@
 /** VARIABLES & FONTS **/
 
 :root{
+    --HardLuckFade: rgba(102,102,119,.5);
     --HardLuckGrey: rgba(102,102,119,1);
     --HardLuckBlue: rgba(  0,136,204,1);
 
@@ -9,6 +10,11 @@
     --OWBlue1:      rgba( 64, 82,117,1);
     --OWBlue2:      rgba( 33,143,254,1);
     --semiblack:    rgba(  50,  50,  50, 1);
+
+    --textback:     2px    2px     0px var(--semiblack),
+                    -2px   2px     0px var(--semiblack),
+                    2px    -2px    0px var(--semiblack),
+                    -2px   -2px    0px var(--semiblack);
 }
 
 @import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
@@ -102,7 +108,7 @@ header a{
 }
 
 header a:hover{
-    text-shadow: 2px 2px 0px var(--semiblack);
+    text-shadow: var(--textback);
 }
 
 /** HERO IMAGE **/
@@ -118,10 +124,7 @@ section#hero{
 section#hero h2{
     color: white;
     font-size: 150%;
-    text-shadow: 2px    2px     0px var(--semiblack),
-                 -2px   2px     0px var(--semiblack),
-                 2px    -2px    0px var(--semiblack),
-                 -2px   -2px    0px var(--semiblack);
+    text-shadow: var(--textback);
 
 }
 
@@ -141,7 +144,6 @@ main section {
 
     /** Regular Styling **/
     margin-bottom: 20px;
-    border: 1px dotted green;
 }
 
 main section aside{
@@ -149,7 +151,7 @@ main section aside{
     flex: 1 1 20%;
 
     /** Regular Styling **/
-    padding:15px;
+    padding:10px;
     border-right: 3px solid var(--HardLuckBlue);
     text-align: right;
 }
@@ -165,7 +167,7 @@ main section aside h3{
 main section div.contentblock{
     /** Set rules as flex CHILD **/
     flex: 4 4 80%;
-    padding: 15px;
+    padding: 10px;
 }
 
 main section div.contentblock p{
@@ -174,13 +176,18 @@ main section div.contentblock p{
 
 /** Project Cards **/
 
-main section#work div.contentblock{
+main section div.contentblock{
     /** Declare as flex parent **/
     display:flex;
-    flex-flow: row wrap-reverse;
+    flex-flow: row wrap;
     align-content: flex-end;
 }
-main section#work figure{
+
+main section#work div.contentblock{
+    flex-flow: row wrap-reverse;
+}
+
+main section figure{
     /** Set rules as flex CHILD **/
     flex: 2 2 calc(50% - 20px);
     min-width:300px;
@@ -191,12 +198,53 @@ main section#work figure{
     border: 3px solid var(--OWOrange);
 }
 
-main section#work figure img{
+main section figure:hover{
+    transition: .5s ease;
+    border-color:var(--OWBlue2);
+
+}
+    main section figure:hover img{
+    transition: .5s ease;
+    opacity: .7;
+}
+
+main section figure img{
     width: 100%;
     height: 200px;
     object-fit: cover;
+    margin-bottom: -3px;
 }
 
+main section figcaption{
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    height: 50px;
+    padding: 20px 10px 10px 10px;
+    color: white;
+    text-shadow: var(--textback);
+    background: linear-gradient(0deg, var(--HardLuckGrey), var(--HardLuckFade));
+}
+
+main section#contact div.contentblock p{
+    /** Set rules as flex CHILD **/
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    font-size: 150%;
+    font-weight: 400;
+}
+
+main section#contact div.contentblock p a{
+    text-decoration: none;
+    color: var(--OWBlue1);
+}
+
+main section#contact div.contentblock p:hover a{
+    font-weight: 600;
+    color: var(--OWBlue2);
+}
 
 
 
@@ -217,3 +265,37 @@ footer p{
     color: white;
 }
 
+/********************************/
+/********** RESPONSIVE **********/
+/********************************/
+
+@media screen and (max-width: 780px) {
+    header h1{
+        font-size: 200%;
+        margin-bottom:20px;
+    }
+
+    header ul{
+        text-align:center;
+    }
+
+    main section{
+        margin-bottom: 20px;
+    }
+
+    main section aside{
+        flex: 1 1 100%;
+        text-align:center;
+        border: none;
+        padding-bottom: 0px;
+    }
+
+    main section aside h3{
+        font-size: 150%;
+        margin: 10px 0px;
+        border-bottom: 3px solid var(--HardLuckBlue);
+    }
+
+    main section figure{
+    }
+}

@@ -1,17 +1,6 @@
-/* BRAND COLORS:
+/** VARIABLES & FONTS **/
 
-Hardluck Blue   #0088cc (  0,136,204)
-Hardluck Grey   #666677 (102,102,119)
-
-OW Orange       #f99e1a	(249,158, 26)
-OW Grey         #43484c	( 67, 72, 76)
-OW Dark Blue    #405275	( 64, 82,117)
-OW Lite Blue    #218ffe	( 33,143,254)
-Black           #000000	(  0,  0,  0)
-
-*/
 :root{
-    /** Color Variables **/
     --HardLuckGrey: rgba(102,102,119,1);
     --HardLuckBlue: rgba(  0,136,204,1);
 
@@ -20,7 +9,6 @@ Black           #000000	(  0,  0,  0)
     --OWBlue1:      rgba( 64, 82,117,1);
     --OWBlue2:      rgba( 33,143,254,1);
     --semiblack:    rgba(  50,  50,  50, 1);
-
 }
 
 @import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
@@ -34,28 +22,23 @@ body{
 
 }
 
-header{
-    position:relative;
-    display: flex;
 
-    /** flex-flow: [flex-direction] [flex-wrap] **/
-    flex-flow: row wrap;
+/** HEADER **/
 
-    /** Main-axis alignment **/
-    justify-content: space-between;
+header{    
+    /** Declare as flex parent **/
+    display:flex;
+    flex-flow: row wrap;                /** flex-flow: [flex-direction] [flex-wrap] **/
+    justify-content: space-between;     /** Main-axis alignment **/
+    align-content: flex-start;          /** Cross-axis alignment **/
+    align-items: stretch;               /** Cross axis sizing **/
 
-    /** Cross-axis alignment **/
-    align-content: flex-start;
-
-    /** Cross axis sizing **/
-    align-items: stretch;
-
+    /** Regular Styling **/
     position: relative;
     top: 0px;
     left: 0px;
-    width: 100vw;
     padding: 15px;
-    background: linear-gradient( 270deg, var(--HardLuckGrey), var(--OWBlue1) );
+    background: linear-gradient( 180deg, var(--HardLuckBlue),var(--semiblack) );
     color: white;
 
     border-bottom: 3px solid var(--HardLuckBlue);
@@ -63,8 +46,9 @@ header{
 
 header section{
     /** flex: [flex-grow] [flex-shrink] [flex-basis]; **/
-    position:relative;
     flex: 2 1 50%;
+
+    position:relative;
     align-self: center;
     min-width: 500px;
 }
@@ -95,11 +79,14 @@ header nav{
 }
 
 header ul{
-    display: flex;
+    /** Declare as flex parent **/
+    display:flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-content: flex-start;
     align-items: center;
+
+    /** Regular Styling **/
     text-align: right;
 }
 
@@ -118,8 +105,9 @@ header a:hover{
     text-shadow: 2px 2px 0px var(--semiblack);
 }
 
+/** HERO IMAGE **/
+
 section#hero{
-    width: 100vw;
     padding: 25px 15px;
     text-align: right;
     margin-bottom:20px;
@@ -136,3 +124,96 @@ section#hero h2{
                  -2px   -2px    0px var(--semiblack);
 
 }
+
+/** SECTIONS **/
+
+main{
+    max-width: 900px;
+    margin: 0px auto;
+}
+
+main section {
+    /** Declare as flex parent **/
+    display:flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    align-content: stretch;
+
+    /** Regular Styling **/
+    margin-bottom: 20px;
+    border: 1px dotted green;
+}
+
+main section aside{
+    /** Creat rules as flex child **/
+    flex: 1 1 20%;
+
+    /** Regular Styling **/
+    padding:15px;
+    border-right: 3px solid var(--HardLuckBlue);
+    text-align: right;
+}
+
+main section aside h3{
+    min-width: 130px;
+    font-size: 125%;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--OWOrange)
+}
+
+main section div.contentblock{
+    /** Set rules as flex CHILD **/
+    flex: 4 4 80%;
+    padding: 15px;
+}
+
+main section div.contentblock p{
+    margin: 10px 0px;
+}
+
+/** Project Cards **/
+
+main section#work div.contentblock{
+    /** Declare as flex parent **/
+    display:flex;
+    flex-flow: row wrap-reverse;
+    align-content: flex-end;
+}
+main section#work figure{
+    /** Set rules as flex CHILD **/
+    flex: 2 2 calc(50% - 20px);
+    min-width:300px;
+
+    display:block;
+    position:relative;
+    margin: 10px;
+    border: 3px solid var(--OWOrange);
+}
+
+main section#work figure img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+
+
+
+
+/** FOOTER **/
+
+footer{
+    display: block;
+    background-color: var(--OWBlue1);
+    bottom:0px;
+    text-align: center;
+}
+
+footer p{
+    font-size: 75%;
+    padding: 10px;
+    color: white;
+}
+

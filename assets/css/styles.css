@@ -31,7 +31,7 @@ Black           #000000	(  0,  0,  0)
 }
 
 body{
-    /*background-color: #666677;*/
+
 }
 
 header{
@@ -116,4 +116,23 @@ header a{
 
 header a:hover{
     text-shadow: 2px 2px 0px var(--semiblack);
+}
+
+section#hero{
+    width: 100vw;
+    padding: 25px 15px;
+    text-align: right;
+    margin-bottom:20px;
+    background: url('../images/header-hardluck.png') no-repeat top -250px left 0px;
+    border-bottom: 3px solid var(--HardLuckBlue);
+}
+
+section#hero h2{
+    color: white;
+    font-size: 150%;
+    text-shadow: 2px    2px     0px var(--semiblack),
+                 -2px   2px     0px var(--semiblack),
+                 2px    -2px    0px var(--semiblack),
+                 -2px   -2px    0px var(--semiblack);
+
 }

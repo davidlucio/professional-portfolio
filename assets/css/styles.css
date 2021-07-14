@@ -178,7 +178,7 @@ main section div.contentblock{
     align-content: flex-end;
 }
 
-main section#work div.contentblock{
+main section.tiles div.contentblock{
     flex-flow: row wrap-reverse;
 }
 
@@ -207,6 +207,7 @@ main section figure img{
     width: 100%;
     height: 200px;
     object-fit: cover;
+    object-position: top;
     margin-bottom: -3px;
 }
 
@@ -242,15 +243,14 @@ main section#contact div.contentblock p:hover a{
 }
 
 
-
-
-
 /** FOOTER **/
 
 footer{
     display: block;
+    position:absolute;
+    width: 100%;
     background-color: var(--OWBlue1);
-    bottom:0px;
+    left: 0px;
     text-align: center;
 }
 
@@ -265,13 +265,18 @@ footer p{
 /********************************/
 
 @media screen and (max-width: 780px) {
-    header h1{
-        font-size: 200%;
-        margin-bottom:20px;
+    header section{
+        min-width: unset;
     }
 
-    header ul{
-        text-align:center;
+    header h1{
+        font-size: 250%;
+        margin-bottom:20px;
+        width: 500px;
+    }
+
+    footer{
+        position: relative;
     }
 
     main section{
@@ -291,4 +296,23 @@ footer p{
         border-bottom: 3px solid var(--HardLuckBlue);
     }
 
+}
+
+@media screen and (max-width: 500px) {
+
+    header h1{
+        line-height: 50px;
+        width: 300px;
+    }
+
+    header ul{
+        text-align:center;
+        flex-wrap:wrap;
+    }
+
+    header li{
+        flex: 1 2 30%;
+        padding: 5px;
+    }
+    
 }
